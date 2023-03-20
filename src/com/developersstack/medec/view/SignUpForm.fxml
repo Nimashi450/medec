@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="signUpContext" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.developersstack.medec.controller.SignUpFormController">
+   <children>
+      <Label layoutX="288.0" layoutY="14.0" text="Register here" textFill="#fa3e25">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Separator layoutX="288.0" layoutY="49.0" prefHeight="2.0" prefWidth="302.0" />
+      <ImageView fitHeight="400.0" fitWidth="525.0" layoutX="-248.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/images/rm373batch15-217-01.jpg" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="txtFirstName" labelFloat="true" layoutX="288.0" layoutY="65.0" prefHeight="27.0" prefWidth="146.0" promptText="First Name">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtLastName" labelFloat="true" layoutX="441.0" layoutY="61.0" prefHeight="31.0" prefWidth="146.0" promptText="Last Name" />
+      <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="288.0" layoutY="111.0" prefHeight="27.0" prefWidth="302.0" promptText="Email" />
+      <JFXPasswordField fx:id="txtPassword" labelFloat="true" layoutX="288.0" layoutY="157.0" prefHeight="27.0" prefWidth="302.0" promptText="Password">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton buttonType="RAISED" layoutX="315.0" layoutY="267.0" onAction="#signUpOnAction" prefHeight="31.0" prefWidth="238.0" style="-fx-background-color: #1683D9;" text="Sign Up" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXRadioButton id="rdtndoctor" fx:id="rdtndoctor" layoutX="299.0" layoutY="221.0" selected="true" text="Doctor">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="accountType" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton layoutX="462.0" layoutY="221.0" text="Patient" toggleGroup="$accountType">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXRadioButton>
+      <Label layoutX="424.0" layoutY="307.0" text="OR" textFill="#fa3e25" />
+      <JFXButton buttonType="RAISED" layoutX="320.0" layoutY="342.0" onAction="#AlreadyHaveAnAccountOnAction" prefHeight="31.0" prefWidth="238.0" style="-fx-background-color: #071847;" text="Already have an Account" textFill="#f5f0f0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

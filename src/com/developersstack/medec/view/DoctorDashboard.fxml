@@ -34,5 +34,6 @@
          </cursor>
       </JFXButton>
       <Separator layoutX="5.0" layoutY="56.0" prefHeight="0.0" prefWidth="592.0" />
+      <Separator layoutX="265.0" layoutY="26.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="0.0" />
    </children>
 </AnchorPane>

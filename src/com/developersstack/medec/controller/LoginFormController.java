@@ -3,6 +3,7 @@ package com.developersstack.medec.controller;
 import com.developersstack.medec.db.Database;
 import com.developersstack.medec.dto.UserDto;
 import com.developersstack.medec.enums.AccountType;
+import com.developersstack.medec.utill.Cookie;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -21,8 +22,9 @@ public class LoginFormController {
     public JFXPasswordField txtpassword;
     public JFXRadioButton rdtndoctor;
     public AnchorPane loginContext;
+    //private String pathname;
 
-    public void signInOnAction(ActionEvent actionEvent) {
+    public void signInOnAction(ActionEvent actionEvent) throws IOException {
         //get the correct user
         //check his account type and userName and the password
 
@@ -38,6 +40,10 @@ public class LoginFormController {
                     if(dto.getAccounttype().equals(accountType)){
                         // Complete
                         new Alert(Alert.AlertType.CONFIRMATION, "Login Success!!").show();
+                        Cookie.selectedUser = dto;
+
+                        setUI("Doctordahboard");
+
                     } else{
                         new Alert(Alert.AlertType.WARNING, "We can't find your Account type!").show();
                         return;
@@ -57,7 +63,13 @@ public class LoginFormController {
     }
 
     public void createAnAccountOnAction(ActionEvent actionEvent) throws IOException {
+
+        setUI("Loginform");
+    }
+
+    private void setUI(String pathname) throws IOException {
         Stage stage = (Stage)loginContext.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/SignUpForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/"+pathname+".fxml"))));
+        stage.centerOnScreen();
     }
 }

@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
 <AnchorPane fx:id="DoctorDashboardContext" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.developersstack.medec.controller.DoctorDashboardFormController">
-
+   <children>
+      <Label layoutX="22.0" layoutY="24.0" text="Doctor Dashboard" textFill="#fa3e25">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbldate" layoutX="208.0" layoutY="30.0" text="2023-04-30">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbltime" layoutX="274.0" layoutY="30.0" text="10:49">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="518.0" layoutY="25.0" prefHeight="21.0" prefWidth="59.0" style="-fx-background-color: #071847;" text="Log Out" textFill="#fffdfd">
+         <font>
+            <Font size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Separator layoutX="5.0" layoutY="56.0" prefHeight="0.0" prefWidth="592.0" />
+   </children>
 </AnchorPane>

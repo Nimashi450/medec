@@ -60,6 +60,7 @@ public class SignUpFormController {
     private void rediretUI() throws IOException {
         Stage stage = (Stage)signUpContext.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
+        stage.centerOnScreen();
 
     }
 }

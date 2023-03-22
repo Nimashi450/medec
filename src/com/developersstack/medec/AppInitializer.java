@@ -16,7 +16,7 @@ public class AppInitializer extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 //        Relative path /
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("./view/DoctorDashboard.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("./view/DoctorRegistration.fxml"))));
         primaryStage.show();
     }
 }

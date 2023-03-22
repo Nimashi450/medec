@@ -60,7 +60,7 @@ public class DoctorDashboardFormController {
                         .findFirst();
         if(!selectedDoctor.isPresent()){
             // open a new window
-            setUI("DoctorRegistration");
+            setUI("DoctorRegistrationController");
         }
 
     }

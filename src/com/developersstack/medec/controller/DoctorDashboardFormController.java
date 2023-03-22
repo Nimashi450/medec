@@ -31,7 +31,7 @@ public class DoctorDashboardFormController {
         initializeData();
     }
 
-    private void initializeData() {
+    private void initializeData() throws IOException {
 //        Date date = new Date();
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 //        String today = simpleDateFormat.format(date);
@@ -53,7 +53,7 @@ public class DoctorDashboardFormController {
         checkDoctor();
     }
 
-    private void checkDoctor(){
+    private void checkDoctor() throws IOException {
         Optional<DoctorDto> selectedDoctor =
                 Database.doctorTable.stream()
                         .filter(e -> e.getEmail().equals("dinuth@gmail.com"))
@@ -70,7 +70,7 @@ public class DoctorDashboardFormController {
 
         }
     }
-    private void setUI(String pathName){
+    private void setUI(String pathName) throws IOException {
         Stage stage = (Stage)DoctorDashboardContext.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/"+pathName+".fxml"))));
         stage.centerOnScreen();

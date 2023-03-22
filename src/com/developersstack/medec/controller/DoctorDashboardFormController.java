@@ -1,5 +1,7 @@
 package com.developersstack.medec.controller;
 
+import com.developersstack.medec.db.Database;
+import com.developersstack.medec.dto.DoctorDto;
 import com.developersstack.medec.utill.Cookie;
 import com.sun.org.apache.bcel.internal.generic.DADD;
 import javafx.animation.Animation;
@@ -17,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Optional;
 
 public class DoctorDashboardFormController {
     public AnchorPane DoctorDashboardContext;
@@ -46,14 +49,30 @@ public class DoctorDashboardFormController {
         );
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+        //----Initialize Doctor details too (tobe implemented)
+        checkDoctor();
     }
 
-    public void checkUser() throws IOException {
+    private void checkDoctor(){
+        Optional<DoctorDto> selectedDoctor =
+                Database.doctorTable.stream()
+                        .filter(e -> e.getEmail().equals("dinuth@gmail.com"))
+                        .findFirst();
+        if(!selectedDoctor.isPresent()){
+            // open a new window
+            setUI("DoctorRegistration");
+        }
+
+    }
+        public void checkUser() throws IOException {
         if(null == Cookie.selectedUser){
-            Stage stage = (Stage)DoctorDashboardContext.getScene().getWindow();
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DoctorDashboard.fxml"))));
-            stage.centerOnScreen();
+            setUI("DoctorDashboard");
 
         }
+    }
+    private void setUI(String pathName){
+        Stage stage = (Stage)DoctorDashboardContext.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/"+pathName+".fxml"))));
+        stage.centerOnScreen();
     }
 }
